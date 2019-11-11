@@ -43,7 +43,23 @@ public class TravelDetail {
         || (!TicketType.JGY.equals(ticketType) && (boardingDate.getDayDifference(dueDate) >= 0));
     }
 
+    public boolean isExpired() {
+        return !isValid();
+    }
+
+    public DiscountType getDiscountType() {
+        return ticketType.getDiscountType();
+    }
+
+    public boolean isExpireSoon() {
+        return !TicketType.JGY.equals(ticketType) &&  boardingDate.getDayDifference(dueDate) <= 3;
+    }
     public Integer getDueCounter() {
         return dueCounter;
+    }
+
+    @Override
+    public String toString() {
+        return ticketId + " " + dueDate;
     }
 }

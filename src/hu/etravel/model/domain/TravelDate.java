@@ -8,15 +8,15 @@ public class TravelDate {
         this.value = value;
     }
 
-    public int getYear() {
+    private int getYear() {
         return Integer.parseInt(value.substring(0, 4));
     }
 
-    public int getMonth() {
+    private int getMonth() {
         return Integer.parseInt(value.substring(4, 6));
     }
 
-    public int getDay() {
+    private int getDay() {
         return Integer.parseInt(value.substring(6, 8));
     }
 
@@ -32,8 +32,13 @@ public class TravelDate {
         e2 = e2 - h2 / 10;
         var d2 = 365 * e2 + e2 / 4 - e2 / 100 + e2 / 400 + (h2 * 306 + 5) / 10 + n2 - 1;
         return d2 - d1;
-
     }
+
+    @Override
+    public String toString() {
+        return String.format("%4d-%02d-%02d", getYear(), getMonth(), getDay());
+    }
+
     /*
 Függvény napokszama(e1:egész, h1:egész, n1: egész, e2:egész, h2: egész, n2: egész): egész
 	h1 = (h1 + 9) MOD 12

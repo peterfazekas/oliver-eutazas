@@ -2,17 +2,21 @@ package hu.etravel.model.domain;
 
 public enum TicketType {
 
-    FEB("nem kedvezményes"),
-    TAB("kedvezményes"),
-    NYB("kedvezményes"),
-    NYP("ingyenes"),
-    RVS("ingyenes"),
-    GYK("ingyenes"),
-    JGY("nem kedvezményes");
+    FEB(DiscountType.FULL_PRICE),
+    TAB(DiscountType.DISCOUNTED),
+    NYB(DiscountType.DISCOUNTED),
+    NYP(DiscountType.FREE),
+    RVS(DiscountType.FREE),
+    GYK(DiscountType.FREE),
+    JGY(DiscountType.FULL_PRICE);
 
-    private final String discountType;
+    private final DiscountType discountType;
 
-    TicketType(String discountType) {
+    TicketType(DiscountType discountType) {
         this.discountType = discountType;
+    }
+
+    public DiscountType getDiscountType() {
+        return discountType;
     }
 }

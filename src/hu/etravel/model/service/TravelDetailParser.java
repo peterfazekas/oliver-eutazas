@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 
 public class TravelDetailParser {
 
-    public List<TravelDetail> parse(List<String> lines) {
+    List<TravelDetail> parse(List<String> lines) {
         return lines.stream()
-                .map(i -> createTravelDetail(i))
+                .map(this::createTravelDetail)
                 .collect(Collectors.toList());
     }
 
